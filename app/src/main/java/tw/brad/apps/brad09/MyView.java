@@ -25,16 +25,16 @@ public class MyView extends View {
 
         res =  context.getResources();//取得res,
         matrix = new Matrix(); //選轉,縮放,變型的物件實體
-        timer = new Timer();
+        timer = new Timer(); //背景執行緒
 
     }
 
-
+    //初始化設定
     private  void init(){//做一次就好的地方
         viewW = getWidth(); viewH = getHeight(); //第一次近來就取得寬高
         ballW = viewW / 12f; ballH = ballW; //球的大小式螢幕的8分之一
 
-        ballBmp= BitmapFactory.decodeResource(res,R.drawable.balle);//球在不同資料夾,要靠工廠去解碼得到
+        ballBmp= BitmapFactory.decodeResource(res,R.drawable.balle);//球在不同資料夾,要靠工廠去解碼得到(1.res,顯示頁面資源區)
         matrix.reset();
 
         matrix.postScale(ballH/ballBmp.getWidth(), ballH/ballBmp.getWidth());// 新突/圓圖就拿到了
